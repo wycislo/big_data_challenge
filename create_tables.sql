@@ -1,16 +1,9 @@
 
--- Database: big_data
-
--- DROP DATABASE IF EXISTS big_data;
-
-CREATE DATABASE big_data
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'en_US.UTF-8'
-    LC_CTYPE = 'en_US.UTF-8'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
+drop table review_id_table;
+drop table products;
+drop table customers;
+drop table vine_table;
+drop table amazon_review_wireless;
 
 CREATE TABLE review_id_table (
   review_id TEXT PRIMARY KEY NOT NULL,
@@ -41,11 +34,21 @@ CREATE TABLE vine_table (
   vine TEXT
 );
 
--- vine table
-CREATE TABLE vine_table (
-  review_id TEXT PRIMARY KEY,
-  star_rating INTEGER,
-  helpful_votes INTEGER,
-  total_votes INTEGER,
-  vine TEXT
+
+CREATE TABLE amazon_review_wireless (
+  marketplace text,
+ customer_id text,
+ review_id text,
+ product_id text,
+ product_parent text,
+ product_title text,
+ product_category text,
+ star_rating text,
+ helpful_votes text,
+ total_votes text,
+ vine text,
+ verified_purchase text,
+ review_headline text,
+ review_body text,
+ review_date text
 );

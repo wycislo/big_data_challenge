@@ -1,9 +1,12 @@
 
-drop table review_id_table;
-drop table products;
-drop table customers;
-drop table vine_table;
-drop table amazon_review_wireless;
+DROP TABLE IF EXISTS review_id_table;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS vine_table;
+DROP TABLE IF EXISTS amazon_review_wireless;
+DROP TABLE IF EXISTS watch_reviews;
+DROP TABLE IF EXISTS watch_products;
+DROP TABLE IF EXISTS public.watches_vine;
 
 CREATE TABLE review_id_table (
   review_id TEXT PRIMARY KEY NOT NULL,
@@ -51,4 +54,27 @@ CREATE TABLE amazon_review_wireless (
  review_headline text,
  review_body text,
  review_date text
+);
+
+CREATE TABLE IF NOT EXISTS watch_products
+(
+    product_id text,
+    product_title text"
+);
+
+CREATE TABLE IF NOT EXISTS public.watch_reviews
+(
+    customer_id integer,
+    product_id text,
+    product_parent integer,
+    review_date text 
+);
+
+CREATE TABLE IF NOT EXISTS public.watches_vine
+(
+    review_id text ,
+    star_rating text ,
+    helpful_votes integer,
+    total_votes integer,
+    vine text 
 );
